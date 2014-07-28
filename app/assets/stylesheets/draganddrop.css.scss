@@ -1,0 +1,34 @@
+	
+		.drop {
+			position: fixed;
+			right: 0px;
+			opacity: 0.4;
+    		filter: alpha(opacity=40);
+			color: White;
+			margin: 3px;
+			margin-top: 50px;
+			padding: 10px;
+			background-color: #123556;
+    		height: 100%;
+    		top: 0;
+    		width: 200px;
+    		z-index: 2;
+    		display: inline-block;
+
+		}
+
+/*replace the content value with the
+corresponding value from the list below*/
+ 
+.cart-item:before {
+	position: relative;
+    content: "\f0c9";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+/*--adjust as necessary--*/
+	z-index: -1;
+    font-size: 12px;
+    padding-right: 0.5em;
+}

@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "rails", "4.0.0"
+gem "rails", "4.1.0"
 gem "mongoid", github: "mongoid/mongoid"
 gem "sass-rails", "~> 4.0.0"
 gem "uglifier", ">= 1.3.0"
@@ -9,6 +9,8 @@ gem "therubyracer", platforms: :ruby
 gem "jquery-rails"
 gem "turbolinks"
 gem "jbuilder", "~> 1.2"
+gem 'pg'
+gem 'bson_ext'
 group :development do
   gem "guard-rspec"
   gem "pry"
@@ -38,4 +40,9 @@ gem "cancan"
 gem "omniauth"
 gem "omniauth-facebook"
 gem "omniauth-twitter"
+gem "omniauth-moves"
+gem "moves"
+gem "yelp"
 gem "hashugar", github: "alex-klepa/hashugar"
+gem "slim"
+gem "sinatra"

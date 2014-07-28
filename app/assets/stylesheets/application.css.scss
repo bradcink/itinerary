@@ -12,3 +12,170 @@
  *= require_tree .
 */
 
+html, body {
+  height: 100%;
+  width: 100%;
+
+  margin: 0;
+  padding: 0;
+}
+
+#map_canvas {
+  height: 100%;
+  width: 100%;
+}
+
+#control_container {
+  margin: 40px;
+}
+
+#map_location {
+  padding-top: 10px;
+  /* fixed within viewport */
+    position: fixed;
+    right: 600px;
+}
+
+
+#map_search {
+  padding-top: 10px;
+  /* fixed within viewport */
+    position: fixed;
+    right: 20px;
+}
+
+#map_search input[type=text] {
+  border: 1px solid #fff;
+  padding-left: 7px;
+  height: 20px;
+  width: 300px;
+}
+
+#map_search input[type=text]:focus {
+  outline: none;
+
+  border: 1px solid #c41200;
+  border-right: none;
+}
+
+#map_search form a {
+  background: #c41200;
+  color: #fff;
+  display: inline-block;
+  padding: 7px 9px 7px 9px;
+}
+
+.attribution {
+  position: absolute;
+  top: 5px;
+  right: 45px;
+}
+
+.attribution p {
+  color: #aaa;
+  display: inline-block;
+  padding-top: 2px;
+}
+
+.attribution p.burst {
+  position: absolute;
+  top: -2px;
+}
+
+#results {
+  display: none;
+  margin-top: 15px;
+  width: 465px;
+}
+
+#results .result {
+  clear: both;
+
+  animation: fadein .5s;
+  -moz-animation: fadein .5s; /* Firefox */
+  -webkit-animation: fadein .5s; /* Safari and Chrome */
+  -ms-animation: fadein .5s; /* Internet Explorer */
+  -o-animation: fadein .5s; /* Opera */
+
+  background: #fff;
+  border-bottom: 1px solid #e5e5e1;
+  display: inline-block;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  padding: 5px;
+  text-align: center;
+  width: 150p;
+}
+
+#results .result p {
+  margin: 0;
+}
+
+.result h5 {
+  font-size: 12px;
+  margin-top: 0px;
+  margin-bottom: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100px;
+  white-space: nowrap;
+}
+
+.clear-fix {
+  clear: both;
+  margin: 0;
+  padding: 0;
+}
+
+.biz_img{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: block;
+    text-indent: -9000px;
+    text-align: left;
+    -webkit-box-shadow: 
+    0px 2px 5px rgba(0,0,0,0.7) inset, 
+    0px 0px 0px 1px rgba(61,64,85,0.3);
+    -moz-box-shadow: 
+    0px 2px 5px rgba(0,0,0,0.7) inset, 
+    0px 0px 0px 1px rgba(61,64,85,0.3);
+    box-shadow: 
+    0px 2px 5px rgba(0,0,0,0.7) inset, 
+    0px 0px 0px 1px rgba(61,64,85,0.3);
+  background-size: cover;
+  background-color: #f0f0f0;
+  background-repeat: no-repeat;
+  background-position: center center;
+  position: static;
+}
+
+@keyframes fadein {
+  from { opacity: 0 }
+  to   { opacity: 1 }
+}
+
+/* Firefox */
+@-moz-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Safari and Chrome */
+@-webkit-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Opera */
+@-o-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}

@@ -1,0 +1,21 @@
+# Add application configuration variables here, as shown below.
+#
+# PUSHER_APP_ID: "2954"
+# PUSHER_KEY: 7381a978f7dd7f9a1117
+# PUSHER_SECRET: abdc3b896a0ffb85d373
+
+#Consumer Key	
+YELP_CONSUMER_KEY: o1lZ50a0mSgOdKaXaudhqA
+#Consumer Secret	
+YELP_CONSUMER_SECRET: ZmzJeaKMljYnbXUT7ieGMuseUWY
+#Token	
+YELP_TOKEN: _eXCEDIokxS3ox7mmy9g23CYKau2di2_
+#Token Secret	
+YELP_TOKEN_SECRET: 8Rqlas7bM-LnQ2mG2uGad9L0nNI
+#Facebook Key	
+FACEBOOK_KEY: 418293008310435
+#Facebook SECRET	
+FACEBOOK_SECRET: 6cbaf6a400b8aa8794a2c4fcf42c2706
+
+MOVES_KEY: h7k486_6bKS5VnxtNX3TL35wFVNAidCt
+MOVES_SECRET: 9e6U0peCd567rvBvHZx05zEINnJOf4A843q16K912RdkoM2gfbx4KJpP7pa543Q6

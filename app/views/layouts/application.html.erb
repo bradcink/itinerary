@@ -2,34 +2,28 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "Bootstrap App" %></title>
-    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Bootstrap App" %>">
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
+    <title><%= content_for?(:title) ? yield(:title) : "Itinerary" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Itinerary" %>">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_MAPS']}&sensor=true" %>
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+    <%= javascript_tag do %>
+        jQuery(document).ajaxSend(function(e, xhr, options) {
+         var token = jQuery("meta[name='csrf-token']").attr("content");
+          xhr.setRequestHeader("X-CSRF-Token", token);
+        });
+    <% end %>
     <%= yield(:head) %>
-  </head>
-  <body class="<%= controller_name %> <%= action_name %>">
-    <header class="navbar navbar-fixed-top">
-      <nav class="navbar-inner">
-        <div class="container">
-          <%= render 'layouts/navigation' %>
-        </div>
-      </nav>
-    </header>
-    <div id="main" role="main">
-      <div class="container">
-        <div class="content">
-           <div class="row">
-            <div class="span12">
-              <%= render 'layouts/messages' %>
-              <%= yield %>
-            </div>
-          </div>
-          <footer>
-          </footer>
-        </div>
-      </div> <!--! end of .container -->
-    </div> <!--! end of #main -->
-  </body>
+    </head>
+    <body class="<%= controller_name %> <%= action_name %>">
+      <header class="navbar navbar-fixed-top">
+        <nav class="navbar-inner">
+            <%= render 'layouts/navigation' %>
+        </nav>
+            <%= render 'layouts/messages' %>
+      </header>
+      <%= yield %>
+    </body>
 </html>
