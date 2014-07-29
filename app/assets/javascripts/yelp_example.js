@@ -4,6 +4,8 @@ var SF_LAT = 37.7435841;
 var SF_LNG = -122.4897851;
 var QUERY_DELAY = 400;
 var inactive = false;
+var directionsDisplay;
+var directionsService = new google.maps.DirectionsService();
 
 $(document).ready(function() {
   // initialize the map on load
@@ -16,7 +18,7 @@ $(document).ready(function() {
 var initialize = function() {
 
   // Define some options for the map
-
+  directionsDisplay = new google.maps.DirectionsRenderer();
   var mapOptions = {
     center: new google.maps.LatLng(SF_LAT, SF_LNG),
     zoom: 12,
@@ -36,6 +38,8 @@ var initialize = function() {
   // create a new Google map with the options in the map element
   var map = new google.maps.Map($('#map_canvas')[0], mapOptions);
   bind_controls(map);
+  directionsDisplay.setMap(map);
+
 }
   
 /**
@@ -185,3 +189,43 @@ var clearMarkers = function() {
 
   markersArray = [];
 };
+
+
+
+function calcRoute() {
+  var start = document.getElementById('start').value;
+  var end = document.getElementById('end').value;
+  var waypts = [];
+  var checkboxArray = document.getElementById('waypoints');
+  for (var i = 0; i < checkboxArray.length; i++) {
+    if (checkboxArray.options[i].selected == true) {
+      waypts.push({
+          location:checkboxArray[i].value,
+          stopover:true});
+    }
+  }
+
+  var request = {
+      origin: start,
+      destination: end,
+      waypoints: waypts,
+      optimizeWaypoints: true,
+      travelMode: google.maps.TravelMode.DRIVING
+  };
+  directionsService.route(request, function(response, status) {
+    if (status == google.maps.DirectionsStatus.OK) {
+      directionsDisplay.setDirections(response);
+      var route = response.routes[0];
+      var summaryPanel = document.getElementById('directions_panel');
+      summaryPanel.innerHTML = '';
+      // For each route, display summary information.
+      for (var i = 0; i < route.legs.length; i++) {
+        var routeSegment = i + 1;
+        summaryPanel.innerHTML += '<b>Route Segment: ' + routeSegment + '</b><br>';
+        summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
+        summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
+        summaryPanel.innerHTML += route.legs[i].distance.text + '<br><br>';
+      }
+    }
+  });
+}
